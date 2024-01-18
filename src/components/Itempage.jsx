@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-const Itempage = ({ item, handleCartOpen, addToCart }) => {
+const Itempage = ({ item, handleCartOpen, addToCart, handleItemChange }) => {
   const [size, setSize] = useState("S");
   const [quantity, setQuantity] = useState(1);
+  const [showAlert, setShowAlert] = useState(false);
 
   function addQuantity() {
     setQuantity((e) => quantity + 1);
@@ -13,6 +14,56 @@ const Itempage = ({ item, handleCartOpen, addToCart }) => {
 
   return (
     <div>
+      {showAlert ? (
+        <div role="alert" className="alert shadow-lg">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            className="stroke-info shrink-0 w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          <div>
+            <h3 className="font-bold">
+              {item.name} has been added to your cart
+            </h3>
+          </div>
+          <button className="btn btn-sm" onClick={() => handleCartOpen(true)}>
+            view cart
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
+      <div className="flex justify-end max-w-6xl mt-2 mr-2">
+        <button
+          className="btn btn-square"
+          onClick={() => {
+            handleItemChange("");
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
       <div className="grid md:grid-cols-3 p-10 max-w-5xl m-auto">
         <div className="max-w-xl col-span-2">
           <img src={item.img1} alt=""></img>
@@ -65,7 +116,13 @@ const Itempage = ({ item, handleCartOpen, addToCart }) => {
           <div className="w-full p-0">
             <button
               className="btn w-full"
-              onClick={() => addToCart(item, size, quantity)}
+              onClick={() => {
+                addToCart(item, size, quantity);
+                setShowAlert(true);
+                setTimeout(() => {
+                  setShowAlert(false);
+                }, 10000);
+              }}
             >
               Add to cart
             </button>

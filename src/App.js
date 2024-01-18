@@ -92,6 +92,7 @@ function App() {
         <Itempage
           item={selectedItem}
           handleCartOpen={handleCartOpen}
+          handleItemChange={handleItemChange}
           addToCart={addToCart}
         />
       )}
