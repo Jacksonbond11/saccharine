@@ -7,28 +7,28 @@ const inventory = [
     img1: "./clothing/tshirts/shirt1.png",
     img2: "./clothing/tshirts/shirt2.png",
     name: "lollipop catastrophe",
-    price: "$34.99",
+    price: 34.99,
   },
   {
     id: 2,
     img1: "./clothing/tshirts/shirt4.png",
     img2: "./clothing/tshirts/shirt5.png",
     name: "peppermint turmoil",
-    price: "$24.99",
+    price: 24.99,
   },
   {
     id: 3,
     img1: "./clothing/hoodies/hoodie1.png",
     img2: "./clothing/hoodies/hoodie2.png",
     name: "candy circus",
-    price: "$44.99",
+    price: 44.99,
   },
   {
     id: 4,
     img1: "./clothing/hats/hat1.png",
     img2: "./clothing/hats/hat2.png",
     name: "bubbledustrial",
-    price: "$19.99",
+    price: 19.99,
   },
 ];
 

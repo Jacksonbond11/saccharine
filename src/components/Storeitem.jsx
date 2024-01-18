@@ -19,7 +19,7 @@ const Storeitem = ({ img1, img2, name, price, onItemSelect }) => {
       <p>
         <a href="#">{name}</a>
       </p>
-      <p>{price}</p>
+      <p>${price}</p>
     </div>
   );
 };

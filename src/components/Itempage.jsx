@@ -22,7 +22,7 @@ const Itempage = ({ item, handleCartOpen, addToCart }) => {
             <h3 className="text-5xl font-bold">{item.name}</h3>
           </div>
           <div className="mt-4">
-            <p className="text-2xl font-bold">{item.price}</p>
+            <p className="text-2xl font-bold">${item.price}</p>
           </div>
           <div className="mt-4">
             <p>size</p>
@@ -43,9 +43,13 @@ const Itempage = ({ item, handleCartOpen, addToCart }) => {
           <div className="mt-4">
             <p>quantity</p>
             <div className="flex align-middle items-center">
-              <button onClick={subQuantity} className="btn">
-                -
-              </button>
+              {quantity > 1 ? (
+                <button onClick={subQuantity} className="btn">
+                  -
+                </button>
+              ) : (
+                <button className="btn">-</button>
+              )}
               <p className="p-3 m-2">{quantity}</p>
               <button onClick={addQuantity} className="btn">
                 +

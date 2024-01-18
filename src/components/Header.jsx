@@ -5,6 +5,7 @@ const Header = ({
   handleCartClose,
   handleItemChange,
   cartCount,
+  subtotal,
 }) => {
   return (
     <div>
@@ -51,7 +52,7 @@ const Header = ({
             >
               <div className="card-body">
                 <span className="font-bold text-lg">{cartCount} Items</span>
-                <span className="text-info">Subtotal: $0</span>
+                <span className="text-white">Subtotal: ${subtotal}</span>
                 <div className="card-actions">
                   <button
                     className="btn btn-primary btn-block"
