@@ -3,11 +3,15 @@ const Cart = ({ cart, updateQuantity }) => {
     <div className="max-w-5xl m-auto">
       <div className="text-center mt-2 text-5xl">
         <h1>Cart</h1>
-        <div className="">
+        <div className="mt-4">
           {cart.map((item, index) => (
-            <div key={index} className="flex mb-4">
-              <img src={item.img1} alt="" className="max-h-[200px]" />
-              <div className="p-4 ml-4 text-left text-lg font-bold">
+            <div key={index} className="flex md:mb-4 p-4">
+              <img
+                src={item.img1}
+                alt=""
+                className="md:max-h-[200px] max-h-[150px]"
+              />
+              <div className="p-4 md:ml-4 text-left text-lg font-bold">
                 <p>{item.name}</p>
                 <p>{item.price}</p>
                 <p>Size: {item.size}</p>

@@ -35,10 +35,10 @@ const inventory = [
 const MainShop = ({ handleItemChange }) => {
   return (
     <>
-      <div className="m-auto flex justify-center font-semibold text-5xl p-2">
+      <div className="m-auto flex justify-center font-semibold text-5xl p-2 text-center">
         <h1>explore the collection</h1>
       </div>
-      <div className="max-w-7xl grid grid-cols-4 p-6 m-auto gap-6">
+      <div className="max-w-7xl grid md:grid-cols-4 p-6 m-auto gap-6">
         {inventory.map((item) => (
           <Storeitem
             key={item.id}

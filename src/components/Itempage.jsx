@@ -13,7 +13,7 @@ const Itempage = ({ item, handleCartOpen, addToCart }) => {
 
   return (
     <div>
-      <div className="grid grid-cols-3 p-10 max-w-5xl m-auto">
+      <div className="grid md:grid-cols-3 p-10 max-w-5xl m-auto">
         <div className="max-w-xl col-span-2">
           <img src={item.img1} alt=""></img>
         </div>
