@@ -6,9 +6,8 @@
   overflow: hidden;
   padding: 2rem;
   color: white;
-  font: 1.3rem Inconsolata, monospace;
+  font: monospace;
   text-shadow: 0 0 5px #c8c8c8;
-  pointer-events: none;
 }
 
 .terminalInputWrapper {
@@ -18,7 +17,7 @@
   overflow: hidden;
   padding: 2rem;
   color: white;
-  font: 1.3rem Inconsolata, monospace;
+  font: monospace;
   text-shadow: 0 0 5px #c8c8c8;
 }
 

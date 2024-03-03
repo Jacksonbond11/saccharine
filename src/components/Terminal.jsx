@@ -16,6 +16,7 @@ const Terminal = () => {
 
   const [currentOptions, setCurrentOptions] = useState(conversationPaths.start);
   const [messages, setMessages] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const aiOptions = {
     "Who is this?":
@@ -37,6 +38,14 @@ const Terminal = () => {
     setCurrentOptions(nextOptions);
   };
 
+  const handlePasswordChange = (event) => {
+    const inputPassword = event.target.value;
+    console.log(inputPassword);
+    if (inputPassword === "sweet") {
+      setLoggedIn(true);
+    }
+  };
+
   const terminalRef = useRef(null);
   useEffect(() => {
     if (terminalRef.current) {
@@ -44,45 +53,66 @@ const Terminal = () => {
     }
   }, [messages]);
 
-  return (
-    <div className="flex justify-center">
-      <div className={`p-8`}>
-        <div
-          ref={terminalRef}
-          className="terminalWrapper border min-w-[900px] min-h-[500px] p-4"
-        >
-          <ul className="max-w-[900px]">
-            <li className="text-right">Hello? Is anyone out there?</li>
-            {messages.map((message, index) => (
-              <React.Fragment key={index}>
-                <li className="mt-2 w-1/2 break-words">{message.user}</li>
-                <li className="mt-2 w-1/2 break-words text-right ml-auto">
-                  {message.ai}
-                </li>
-              </React.Fragment>
-            ))}
-          </ul>
-        </div>
-
-        <div className="terminalInputWrapper border min-w-[900px] p-4">
-          <ul>
-            {currentOptions.map((x, index) => {
-              return (
-                <li
-                  key={index}
-                  id="res1"
-                  className="hover:bg-white hover:text-[#009600] cursor-pointer"
-                  onClick={() => handleMessageClick(x)}
-                >
-                  {x}
-                </li>
-              );
-            })}
-          </ul>
+  if (!loggedIn) {
+    return (
+      <div className="flex justify-center">
+        <div className="P-8 m-2 ">
+          <div
+            ref={terminalRef}
+            className="terminalWrapper border min-w-[350px] max-w-[350px] md:min-w-[900px] md:max-w-[990x] md:min-h-[500px] md:max-h-[500px] p-4"
+          >
+            <h1>Please enter password ("sweet") to continue...</h1>
+            <input
+              type="password"
+              onChange={handlePasswordChange}
+              className="passwordInput"
+            />
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
 
+  if (loggedIn) {
+    return (
+      <div className="flex justify-center">
+        <div className="P-8 m-2 ">
+          <div
+            ref={terminalRef}
+            className="terminalWrapper border min-w-[350px] max-w-[350px] md:min-w-[900px] md:max-w-[990x] md:min-h-[500px] md:max-h-[500px] p-4"
+          >
+            <ul className="md:max-w-[900px]">
+              <li className="text-right">Hello? Is anyone out there?</li>
+              {messages.map((message, index) => (
+                <React.Fragment key={index}>
+                  <li className="mt-2 w-1/2 break-words">{message.user}</li>
+                  <li className="mt-2 w-1/2 break-words text-right ml-auto">
+                    {message.ai}
+                  </li>
+                </React.Fragment>
+              ))}
+            </ul>
+          </div>
+
+          <div className="terminalInputWrapper border md:min-w-[900px] h-[150px] p-4">
+            <ul>
+              {currentOptions.map((x, index) => {
+                return (
+                  <li
+                    key={index}
+                    id="res1"
+                    className="hover:bg-white hover:text-[#009600] cursor-pointer"
+                    onClick={() => handleMessageClick(x)}
+                  >
+                    {x}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
+  }
+};
 export default Terminal;
