@@ -5,6 +5,9 @@ import MainShop from "./components/MainShop";
 import { useState, useEffect } from "react";
 import Itempage from "./components/Itempage";
 import Cart from "./components/Cart";
+import Terminal from "./components/Terminal"
+import Divider from "./components/Divider";
+import Story from "./components/Story"
 
 function App() {
   const [selectedItem, setSelectedItem] = useState("");
@@ -81,21 +84,24 @@ function App() {
         cartCount={cartCount}
         subtotal={subtotal}
       />
-      {cartOpen ? (
-        <Cart cart={cart} updateQuantity={updateQuantity} subtotal={subtotal} />
-      ) : !selectedItem ? (
-        <>
+      {/* {cartOpen ? ( */}
+         {/* <Cart cart={cart} updateQuantity={updateQuantity} subtotal={subtotal} />
+       ) : !selectedItem ? (
+        <> */}
           <Hero />
           <MainShop handleItemChange={handleItemChange} />
-        </>
-      ) : (
+          <Divider />
+          <Story />
+          <Terminal />
+        {/* </> */}
+      {/* ) : (
         <Itempage
           item={selectedItem}
           handleCartOpen={handleCartOpen}
           handleItemChange={handleItemChange}
           addToCart={addToCart}
         />
-      )}
+      )} */}
     </div>
   );
 }

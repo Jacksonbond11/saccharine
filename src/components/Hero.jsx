@@ -1,13 +1,28 @@
 import React from "react";
 
 const Hero = () => {
+
+
+  const backgroundStyle = {
+    backgroundImage: "url('/bg.webp')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed',
+    backgroundClip: 'border-box',
+    opacity: 0.8, 
+  };
+
+
   return (
     <div>
-      <div className="pb-8 bg-base-200  text-center">
+      <div className="pb-8 text-center bg-cover bg-opacity-90 text-white" style={backgroundStyle}>
+        <div>
+
         <h1 className="text-7xl font-semibold">saccharine</h1>
         <h2 className="text-5xl font-thin">"life is sweet"</h2>
       </div>
-      <div className="hero min-h-1/2 bg-base-200">
+      <div className="hero min-h-1/2">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">sign up now</h1>
@@ -24,7 +39,7 @@ const Hero = () => {
                   placeholder="email"
                   className="input input-bordered"
                   required
-                />
+                  />
               </div>
 
               <div className="form-control mt-6">
@@ -34,6 +49,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+                  </div>
     </div>
   );
 };
